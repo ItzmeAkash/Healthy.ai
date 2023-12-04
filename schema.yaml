@@ -1,0 +1,30 @@
+COLUMNS:
+  Breakfast: int64
+  Lunch: int64
+  Snacks: int64
+  Dinner: int64
+  Calories: float64
+  Carbs: float64
+  Total Fat: float64
+  Saturated Fat: float64
+  Protein: float64
+  Fiber: float64
+  Cholesterol: float64
+  Sodium: float64
+  Sugar: float64
+  Potassium: float64
+  Magnesium: float64
+  Phosphorus: float64
+  Vitamin C: float64
+  Vitamin A: float64
+  Calcium: float64
+  Iron: float64
+  Zinc: float64
+  Vitamin E: float64
+  Vitamin K: float64
+
+TARGET_COLUMN:
+  food items: str
+
+
+  

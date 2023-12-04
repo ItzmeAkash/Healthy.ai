@@ -1,15 +1,20 @@
 from Healthyai.constants import *
 from Healthyai.utils.common import read_yaml,create_directories
-from Healthyai.entity.config_entity import DietRecommendDataIngestionConfig
+from Healthyai.entity.config_entity import (DietRecommendDataIngestionConfig,
+                                            DietRecomenedDataValidationConfig)
 
 class ConfigurationManager:
     def __init__(
         self,
         config_filepath = CONFIG_FILE_PATH,
-        params_filepath = PARAMS_FILE_PATH
+        params_filepath = PARAMS_FILE_PATH,
+        schema_filepath = SCHEMA_FILE_PATH
+        
     ):
         self.config = read_yaml(config_filepath)
         self.params = read_yaml(params_filepath)
+        self.schema = read_yaml(schema_filepath)
+        
         
         
         create_directories([self.config.artifacts])
@@ -29,4 +34,19 @@ class ConfigurationManager:
             unzip_dir=config.unzip_dir
         )
         
-        return data_ingestion_config    
+        return data_ingestion_config
+    
+    # Validateing the all columns are presented
+    def get_data_validation_config_diet_recommednation(self) ->DietRecomenedDataValidationConfig:
+        config = self.config.diet_recommendation_data_validation
+        schema = self.schema.COLUMNS
+        
+        create_directories([config.root_dir])
+        
+        data_validation_config = DietRecomenedDataValidationConfig(
+            root_dir = config.root_dir,
+            STATUS_FILE = config.STATUS_FILE,
+            unzip_data_dir = config.unzip_data_dir,
+            all_schema = schema
+        )
+        return data_validation_config 

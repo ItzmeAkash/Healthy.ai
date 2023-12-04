@@ -1,5 +1,6 @@
 from Healthyai import logger
 from Healthyai.pipeline.stage_01_diet_recomd_data_ingestion import DietRecomendationDataIngestionPipeline
+from Healthyai.pipeline.stage_02_diet_recomd_data_validation import DietRecomendationDataValidatePipeline
 
 
 STAGE_NAME = "Diet Recomendation Data Ingestion Stage"
@@ -12,3 +13,17 @@ try:
 except Exception as e:
     logger.exception(e)
     raise e 
+
+
+STAGE_NAME = "Diet Recomendation Data Validation Stage"
+
+try: 
+    logger.info(f">>>>>>>>>> Stage {STAGE_NAME} Started <<<<<<<<<<<")
+    obj = DietRecomendationDataValidatePipeline()
+    obj.main()
+    logger.info(f">>>>>>>>>> Stage {STAGE_NAME} Completed <<<<<<<<\n\nx============x")
+    
+except Exception as e:
+    logger.exception(e)
+    raise e
+    
