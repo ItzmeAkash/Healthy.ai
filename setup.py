@@ -7,7 +7,7 @@ with open("README.md", "r", encoding="utf-8") as f:
 __version__ = "0.0.0"
 
 
-REPO_NAME = "Healthy.ai"
+REPO_NAME = "Healthyai"
 AUTHOR_USER_NAME = "ItzmeAkash"
 SRC_REPO = "Healthy.ai"
 AUTHOR_EMAIL = "itzmeakashps@gmail.com"
