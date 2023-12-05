@@ -16,3 +16,11 @@ class DietRecomenedDataValidationConfig:
     unzip_data_dir: Path
     all_schema: dict
     
+@dataclass(frozen=True)
+class DietRecomdModelTrainerConfig:
+    root_dir: Path
+    data_path: Path
+    model_name: str
+    n_clusters: int
+    target_column: float
+    

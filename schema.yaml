@@ -22,9 +22,10 @@ COLUMNS:
   Zinc: float64
   Vitamin E: float64
   Vitamin K: float64
-
+  food_items: str
+  
 TARGET_COLUMN:
-  food items: str
+  food_items: str
 
 
   

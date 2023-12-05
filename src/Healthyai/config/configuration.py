@@ -1,7 +1,8 @@
 from Healthyai.constants import *
 from Healthyai.utils.common import read_yaml,create_directories
 from Healthyai.entity.config_entity import (DietRecommendDataIngestionConfig,
-                                            DietRecomenedDataValidationConfig)
+                                            DietRecomenedDataValidationConfig,
+                                            DietRecomdModelTrainerConfig,)
 
 class ConfigurationManager:
     def __init__(
@@ -50,3 +51,22 @@ class ConfigurationManager:
             all_schema = schema
         )
         return data_validation_config 
+    
+    # model training configuration
+    def diet_recommend_model_trainer_config(self) -> DietRecomdModelTrainerConfig:
+        config = self.config.diet_recommendation_model_trainer
+        params = self.params.KMeans
+        schema = self.schema.COLUMNS
+        
+        
+        create_directories([config.root_dir])
+        
+        
+        model_trainer_config = DietRecomdModelTrainerConfig(
+            root_dir=config.root_dir,
+            data_path = config.data_path,
+            model_name= config.model_name,
+            n_clusters=params.n_clusters,
+            target_column=schema.Calories
+        )
+        return model_trainer_config
