@@ -5,6 +5,7 @@ import warnings
 warnings.filterwarnings('ignore')
 
 
+# Pipeline of the Model Trainer for Diet Recommendaation 
 
 STAGE_NAME = "Diet Recomendation Model Trainer Stage"
 

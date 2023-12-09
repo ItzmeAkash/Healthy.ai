@@ -2,6 +2,7 @@ from Healthyai.config.configuration import ConfigurationManager
 from Healthyai.components.diet_recomd_data_ingestion import DataIngestion
 from Healthyai import logger
 
+# Pipeline of the Data Ingestion for Diet Recommendaation 
 
 STAGE_NAME = "Diet Recomendation Data Ingestion Stage"
 

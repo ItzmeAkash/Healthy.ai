@@ -24,3 +24,11 @@ class DietRecomdModelTrainerConfig:
     n_clusters: int
     target_column: float
     
+
+@dataclass(frozen=True)
+class FoodImageDataIngestionConfig:
+    root_dir: Path
+    source_URL: str
+    local_data_file: Path
+    unzip_dir: Path
+    

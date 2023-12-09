@@ -11,4 +11,7 @@ joblib
 types-PyYAML
 ensure
 gdown
+tensorflow
+dvc
+scipy
 -e .

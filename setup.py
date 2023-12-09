@@ -9,7 +9,7 @@ __version__ = "0.0.0"
 
 REPO_NAME = "Healthyai"
 AUTHOR_USER_NAME = "ItzmeAkash"
-SRC_REPO = "Healthy.ai"
+SRC_REPO = "Healthyai"
 AUTHOR_EMAIL = "itzmeakashps@gmail.com"
 
 

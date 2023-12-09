@@ -1,11 +1,12 @@
 artifacts: artifacts
 
+# Diet Recommendation
+
 diet_recommendation_data_ingestion:
   root_dir: artifacts/diet_recomendation/data_ingestion
   source_URL: https://drive.google.com/file/d/1dOGy_vMtQU3YqETamp2CNo78w8-ckLWN/view?usp=drive_link
   local_data_file: artifacts/diet_recomendation/data_ingestion/data.zip
   unzip_dir: artifacts/diet_recomendation/data_ingestion
-
 
 diet_recommendation_data_validation:
   root_dir: artifacts/diet_recomendation/data_validation
@@ -17,5 +18,10 @@ diet_recommendation_model_trainer:
   data_path: artifacts/diet_recomendation/data_ingestion/diet_recommendation.csv
   model_name: model.joblib
 
+#Food image classification
 
-
+food_image_data_ingestion:
+  root_dir: artifacts/food_image_classification/data_ingestion
+  source_URL: https://drive.google.com/file/d/1lky7C3LipwPKv46QEjpTVHDTfrxEtXew/view?usp=drive_link
+  local_data_file: artifacts/food_image_classification/data_ingestion/data.zip
+  unzip_dir:  artifacts/food_image_classification/data_ingestion

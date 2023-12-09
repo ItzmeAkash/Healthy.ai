@@ -2,6 +2,7 @@ from Healthyai.config.configuration import ConfigurationManager
 from Healthyai.components.diet_recomd_data_validation import DataValidation
 from Healthyai import logger
 
+# Pipeline of the Data Validation for Diet Recommendaation 
 
 STAGE_NAME = "Diet Recomendation Data Validation Stage"
 

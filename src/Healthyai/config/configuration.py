@@ -2,7 +2,8 @@ from Healthyai.constants import *
 from Healthyai.utils.common import read_yaml,create_directories
 from Healthyai.entity.config_entity import (DietRecommendDataIngestionConfig,
                                             DietRecomenedDataValidationConfig,
-                                            DietRecomdModelTrainerConfig,)
+                                            DietRecomdModelTrainerConfig,
+                                            FoodImageDataIngestionConfig)
 
 class ConfigurationManager:
     def __init__(
@@ -52,7 +53,7 @@ class ConfigurationManager:
         )
         return data_validation_config 
     
-    # model training configuration
+    # model training configuration for Diet Recomendation system
     def diet_recommend_model_trainer_config(self) -> DietRecomdModelTrainerConfig:
         config = self.config.diet_recommendation_model_trainer
         params = self.params.KMeans
@@ -70,3 +71,19 @@ class ConfigurationManager:
             target_column=schema.Calories
         )
         return model_trainer_config
+    
+    # Data Ingestion for the Food Image Classiffication
+    
+    def get_food_data_ingestion(self) -> FoodImageDataIngestionConfig:
+       config = self.config.food_image_data_ingestion
+       
+       create_directories([config.root_dir])
+       
+       food_image_data_ingestion_config = FoodImageDataIngestionConfig(
+           root_dir = config.root_dir,
+           source_URL = config.source_URL,
+           local_data_file = config.local_data_file,
+           unzip_dir = config.unzip_dir
+           
+       )
+       return food_image_data_ingestion_config
