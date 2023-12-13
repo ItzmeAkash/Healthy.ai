@@ -3,7 +3,8 @@ from Healthyai.utils.common import read_yaml,create_directories
 from Healthyai.entity.config_entity import (DietRecommendDataIngestionConfig,
                                             DietRecomenedDataValidationConfig,
                                             DietRecomdModelTrainerConfig,
-                                            FoodImageDataIngestionConfig)
+                                            FoodImageDataIngestionConfig,
+                                            FoodImagePreBaseModelCondfig)
 
 class ConfigurationManager:
     def __init__(
@@ -87,3 +88,21 @@ class ConfigurationManager:
            
        )
        return food_image_data_ingestion_config
+   
+   # Preparebase model for the food image classification
+    def get_prepare_base_model_config(self) -> FoodImagePreBaseModelCondfig:
+        config = self.config.food_image_prepare_base_model
+        
+        create_directories([config.root_dir])
+        
+        prepare_base_model_config = FoodImagePreBaseModelCondfig(
+            root_dir = Path(config.root_dir),
+            base_model_path = Path(config.base_model_path),
+            updated_base_model_path = Path(config.updated_base_model_path),
+            params_image_size = self.params.VGG16.IMAGE_SIZE,
+            params_learning_rate = self.params.VGG16.LEARNING_RATE,
+            params_include_top = self.params.VGG16.INCLUDE_TOP,
+            params_weights = self.params.VGG16.WEIGHTS,
+            params_classes = self.params.VGG16.CLASSES 
+        )
+        return prepare_base_model_config

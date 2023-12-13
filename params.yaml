@@ -1,2 +1,13 @@
 KMeans:
   n_clusters: 8
+
+VGG16:
+  AUGMENTATION: True
+  IMAGE_SIZE: [224,224,3]
+  BATCH_SIZE: 16
+  INCLUDE_TOP: False
+  EPOCHS: 1
+  CLASSES: 11
+  WEIGHTS: imagenet
+  LEARNING_RATE: 0.01
+  
