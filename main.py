@@ -4,7 +4,7 @@ from Healthyai.pipeline.stage_02_diet_recomd_data_validation import DietRecomend
 from Healthyai.pipeline.stage_03_diet_recomd_model_trainer import DietRecomendationModelTrainingPipeline
 from Healthyai.pipeline.stage_04_food_classifi_data_ingestion import FoodDataIngeestionPipeLine
 from Healthyai.pipeline.stage_05_food_classifi_prebasemodel import PrepareBaseModelTrainingPipeline
-
+from Healthyai.pipeline.stage_06_food_classifi_training import ModelTrainingPipeline
 
 # Data Ingestion for the Diet Recomendation Pipeline
 
@@ -71,6 +71,22 @@ STAGE_NAME = "Food Classification PrepareBase Model"
 try:      
     logger.info(f">>>>>>>>>> Stage {STAGE_NAME} Started <<<<<<<<<<<")
     obj = PrepareBaseModelTrainingPipeline()
+    obj.main()
+    logger.info(f">>>>>>>>>> Stage {STAGE_NAME} Completed <<<<<<<<\n\nx============x")
+    
+    
+except Exception as e:
+    raise e
+
+
+
+# ModelTraining for  Food Image Classification 
+
+STAGE_NAME = "Food Classification  Model Trainig"
+
+try:      
+    logger.info(f">>>>>>>>>> Stage {STAGE_NAME} Started <<<<<<<<<<<")
+    obj = ModelTrainingPipeline()
     obj.main()
     logger.info(f">>>>>>>>>> Stage {STAGE_NAME} Completed <<<<<<<<\n\nx============x")
     
