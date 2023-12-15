@@ -1,11 +1,12 @@
 from Healthyai.constants import *
-from Healthyai.utils.common import read_yaml,create_directories
+from Healthyai.utils.common import read_yaml,create_directories,save_json
 from Healthyai.entity.config_entity import (DietRecommendDataIngestionConfig,
                                             DietRecomenedDataValidationConfig,
                                             DietRecomdModelTrainerConfig,
                                             FoodImageDataIngestionConfig,
                                             FoodImagePreBaseModelCondfig,
-                                            FoodTrainingConfig)
+                                            FoodTrainingConfig,
+                                            FoodEvaluationConfig)
 import os
 class ConfigurationManager:
     def __init__(
@@ -126,3 +127,14 @@ class ConfigurationManager:
             params_image_size=params.IMAGE_SIZE
         )
         return training_config
+    
+    def get_food_evaludation_config(self) -> FoodEvaluationConfig:
+        food_eval_config = FoodEvaluationConfig(
+            path_of_model="artifacts/food_image_classification/training/model.h5",
+            training_data= "artifacts/food_image_classification/data_ingestion/food classification",
+            mlflow_uri= "https://dagshub.com/itzmeakashps/Healthy.ai.mlflow",
+            all_params = self.params.VGG16,
+            params_image_size= self.params.VGG16.IMAGE_SIZE,
+            params_batch_size= self.params.VGG16.BATCH_SIZE
+        )
+        return food_eval_config
