@@ -1,0 +1,15 @@
+artifact_uri: file:///D:/Nikku/End%20to%20End%20Project/Healthy.ai/mlruns/0/59f7a779182b4ee2b8eab7aa9f84fb45/artifacts
+end_time: 1702642258508
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 59f7a779182b4ee2b8eab7aa9f84fb45
+run_name: stately-goose-97
+run_uuid: 59f7a779182b4ee2b8eab7aa9f84fb45
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1702642250379
+status: 3
+tags: []
+user_id: akash
