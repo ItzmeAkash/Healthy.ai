@@ -15,4 +15,6 @@ tensorflow
 dvc
 scipy
 django
+Flask-Cors
+Flask
 -e .

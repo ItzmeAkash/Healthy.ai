@@ -8,7 +8,7 @@ from ensure import ensure_annotations
 from box import ConfigBox
 from pathlib import Path
 from typing import Any
-
+import base64
 
 
 @ensure_annotations
@@ -125,3 +125,42 @@ def get_size(path: Path) -> str:
     
     size_in_kb = round(os.path.getsize(path)/1024)
     return f"~ {size_in_kb} KB"
+
+
+def decodeImage(imgstring, fileName):
+    imgdata = base64.b64decode(imgstring)
+    with open(fileName, 'wb') as f:
+        f.write(imgdata)
+        f.close()
+
+
+def encodeImageIntoBase64(croppedImagePath):
+    with open(croppedImagePath, "rb") as f:
+        return base64.b64encode(f.read())
+    
+def read_labels_from_file(file_path):
+    """
+    Read label lists from a text file and return them as a list.
+
+    Parameters:
+    - file_path (str): The path to the text file.
+
+    Returns:
+    - list: A list containing the labels.
+    """
+    # Initialize an empty list to store labels
+    labels = []
+
+    try:
+        # Open the file and read labels line by line
+        with open(file_path, 'r') as file:
+            for line in file:
+                # Remove leading and trailing whitespaces and add the label to the list
+                label = line.strip()
+                labels.append(label)
+    except FileNotFoundError:
+        print(f"Error: File not found at {file_path}")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+    return labels
