@@ -14,7 +14,8 @@ class ModelEvaluationPipeline:
         eval_config = config.get_food_evaludation_config()
         evaluation = FoodModelEvaluation(eval_config)
         evaluation.evaluation()
-        evaluation.log_into_mlflow()
+        evaluation.save_score()
+        # evaluation.log_into_mlflow()
         
 
 if __name__ == "__main__":

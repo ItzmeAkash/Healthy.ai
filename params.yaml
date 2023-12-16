@@ -1,6 +1,5 @@
 KMeans:
   n_clusters: 8
-
 VGG16:
   AUGMENTATION: True
   IMAGE_SIZE: [224,224,3]
