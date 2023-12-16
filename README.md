@@ -36,3 +36,19 @@ pip install -r requirements.txt
 python main.py
 ```
 
+### MLflow
+
+```bash
+# cmd
+mlflow ui
+```
+
+
+### DVC Cmd
+
+```bash
+# cmd
+1. dvc init
+2. dvc repo
+3. dvc dag
+```
