@@ -1,0 +1,109 @@
+schema: '2.0'
+stages:
+  diet_recommendation_data_ingestion:
+    cmd: python src/Healthyai/pipeline/stage_01_diet_recomd_data_ingestion.py
+    deps:
+    - path: config/config.yaml
+      hash: md5
+      md5: 223cebfda70d486205e2c8f405c10832
+      size: 1667
+    - path: src/Healthyai/pipeline/stage_01_diet_recomd_data_ingestion.py
+      hash: md5
+      md5: 6839746d76c59d3d03f96c4d9e0e4c63
+      size: 1120
+    outs:
+    - path: artifacts/diet_recomendation/data_ingestion
+      hash: md5
+      md5: ca226e6de3a8b82cccbddae7030c32b3.dir
+      size: 114699
+      nfiles: 2
+  diet_recommendation_data_validation:
+    cmd: python src/Healthyai/pipeline/stage_02_diet_recomd_data_validation.py
+    deps:
+    - path: config/config.yaml
+      hash: md5
+      md5: 223cebfda70d486205e2c8f405c10832
+      size: 1667
+    - path: schema.yaml
+      hash: md5
+      md5: 36fe8e95b316c8cf8f866a7adda91930
+      size: 539
+    - path: src/Healthyai/pipeline/stage_02_diet_recomd_data_validation.py
+      hash: md5
+      md5: e8a088eb3323f656e4892e323fe8bbc4
+      size: 1085
+    outs:
+    - path: artifacts/diet_recomendation/data_validation
+      hash: md5
+      md5: ab1bd14e95c3000aa3add560857c4b3b.dir
+      size: 24
+      nfiles: 1
+  diet_recommendation_model_trainer:
+    cmd: python src/Healthyai/pipeline/stage_03_diet_recomd_model_trainer.py
+    deps:
+    - path: artifacts/diet_recomendation/data_ingestion/diet_recommendation.csv
+      hash: md5
+      md5: d151d210d2bcd18057b923ebcba26228
+      size: 85034
+    - path: src/Healthyai/pipeline/stage_03_diet_recomd_model_trainer.py
+      hash: md5
+      md5: 8034580652df90a09c88b5a6599eabbd
+      size: 1085
+    params:
+      params.yaml:
+        KMeans:
+          n_clusters: 8
+    outs:
+    - path: artifacts/diet_recomendation/model_trainer
+      hash: md5
+      md5: 438569b1e5784e97e21fe259238983e3.dir
+      size: 3659
+      nfiles: 1
+  food_image_data_ingestion:
+    cmd: python src/Healthyai/pipeline/stage_04_food_classifi_data_ingestion.py
+    deps:
+    - path: config/config.yaml
+      hash: md5
+      md5: 223cebfda70d486205e2c8f405c10832
+      size: 1667
+    - path: src/Healthyai/pipeline/stage_04_food_classifi_data_ingestion.py
+      hash: md5
+      md5: cb9fabb70bdcc18799784ae0387f698c
+      size: 1040
+    outs:
+    - path: artifacts/food_image_classification/data_ingestion/food classification
+      hash: md5
+      md5: 3fe1fce27e435273ac4103cbe7da92f8.dir
+      size: 506410479
+      nfiles: 9901
+  food_image_prepare_base_model:
+    cmd: python src/Healthyai/pipeline/stage_05_food_classifi_prebasemodel.py
+    deps:
+    - path: config/config.yaml
+      hash: md5
+      md5: 223cebfda70d486205e2c8f405c10832
+      size: 1667
+    - path: src/Healthyai/pipeline/stage_05_food_classifi_prebasemodel.py
+      hash: md5
+      md5: a4c32a956031f7cd31635bfc1a1f78b8
+      size: 1006
+    params:
+      params.yaml:
+        VGG16:
+          AUGMENTATION: true
+          IMAGE_SIZE:
+          - 224
+          - 224
+          - 3
+          BATCH_SIZE: 16
+          INCLUDE_TOP: false
+          EPOCHS: 1
+          CLASSES: 11
+          WEIGHTS: imagenet
+          LEARNING_RATE: 0.01
+    outs:
+    - path: artifacts/food_image_classification/prepare_base_model
+      hash: md5
+      md5: 4fdff02a9e000fc29cc29cf14459ce2c.dir
+      size: 118962416
+      nfiles: 2
