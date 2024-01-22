@@ -5,6 +5,9 @@ import Home from './Pages/Home'
 import DietRecomd from './Pages/DietRecomd'
 import FoodImage from './Pages/FoodImage'
 import Recipe from './Pages/Recipe'
+import AboutUs from './Pages/AboutUs'
+import Services from './Pages/Services'
+import ContactUs from './Pages/ContactUs'
 function App() {
 
   return (
@@ -13,9 +16,9 @@ function App() {
     <NavBar/>
     <Routes>
       <Route path='/' element={<Home/>}/>
-      <Route path='/dietrecommend' element={<DietRecomd/>}/>
-      <Route path='/foodimage' element={<FoodImage/>}/>
-      <Route path='/recipe' element={<Recipe/>}/>
+      <Route path='/aboutus' element={<AboutUs/>}/>
+      <Route path='/service' element={<Services/>}/>
+      <Route path='/contact' element={<ContactUs/>}/>
       
     </Routes>
         
