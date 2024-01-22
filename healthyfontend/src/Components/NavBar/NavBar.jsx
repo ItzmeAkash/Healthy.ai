@@ -19,8 +19,9 @@ const NavBar = () => {
   return (
     <>
       <div className="navbar">
-        <div className="nav-log">
-          <img src={logo} alt="" />
+        <div onClick={() => handleMenuItemClick('Home')}  className="nav-log">
+         <Link to='/'><img src={logo} alt="" /></Link> 
+         {menu === 'Home' ? <hr /> : <></>}
         </div>
 
         <ul className={`nav-menu ${isMenuVisible ? 'visible' : ''}`}>

@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Banner.css'
 import banner from '../../assets/banner.png'
 import { Link } from 'react-router-dom'
+
 const Banner = () => {
+
+ 
   return (
     <div className='banner-container'>
        <div className="banner-text">
