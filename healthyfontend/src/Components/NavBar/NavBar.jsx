@@ -33,7 +33,7 @@ const NavBar = () => {
             {menu === 'About Us' ? <hr /> : <></>}
           </li>
           <li onClick={() => handleMenuItemClick('Services')}>
-            <Link style={{textDecoration:'none', color:'black'}} to="/services">Services</Link>
+            <Link style={{textDecoration:'none', color:'black'}} to="/service">Services</Link>
             {menu === 'Services' ? <hr /> : <></>}
           </li>
           <li onClick={() => handleMenuItemClick('Contact Us')}>
