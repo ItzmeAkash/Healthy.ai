@@ -1,7 +1,7 @@
 .banner-container {
     width: 100%;
     height: auto;
-    background: hsl(123.93deg 58.1% 79.41%);
+    background: url('D:\Nikku\End to End Project\Healthy.ai\healthyfontend\src\assets\backgroundbanner.webp');
     display: flex;
 }
 

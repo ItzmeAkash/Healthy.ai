@@ -8,6 +8,7 @@ import Recipe from './Pages/Recipe'
 import AboutUs from './Pages/AboutUs'
 import Services from './Pages/Services'
 import ContactUs from './Pages/ContactUs'
+import Footer from './Components/Footer/Footer'
 function App() {
 
   return (
@@ -20,8 +21,8 @@ function App() {
       <Route path='/service' element={<Services/>}/>
       <Route path='/contact' element={<ContactUs/>}/>
       
-    </Routes>
-        
+     </Routes>
+     <Footer/>   
     </BrowserRouter>
     </>
   )
