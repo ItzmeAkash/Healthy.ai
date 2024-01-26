@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Banner from '../Components/Banner/Banner'
-import NavBar from '../Components/NavBar/NavBar'
 import Healthy from '../Components/Healthy Benifits/Healthy'
+import Services from '../Components/Services/Services'
 
 const Home = () => {
 
@@ -11,6 +11,7 @@ const Home = () => {
   
         <Banner />
         <Healthy/>
+        <Services/>
     </>
 
   )

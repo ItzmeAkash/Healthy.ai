@@ -1,10 +1,15 @@
-.navbar{
-   display: flex;
-   justify-content: space-around; 
-   padding:16px ;
-   box-shadow: 0 1px 3px -2px black;
-  
-}
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    padding: 16px;
+    box-shadow: 0 1px 3px -2px black;
+    background: white;
+    position: fixed;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    z-index: 1;
+  }
 
 .nav-log{
     display: flex;
