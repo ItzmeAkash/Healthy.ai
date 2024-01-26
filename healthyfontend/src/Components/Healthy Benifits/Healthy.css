@@ -106,3 +106,49 @@
     }
   
   }
+
+  
+
+  @media only screen and (max-width: 600px) {
+
+    .health-left img {
+        width: 150px;
+        margin-left: 25px;
+        -webkit-animation: mover 1s infinite ease-in-out alternate;
+        animation: mover 1s infinite ease-in-out alternate;
+        display: inline;
+    }
+    
+    @-webkit-keyframes mover {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-10px); }
+    }
+    
+    @keyframes mover {
+        0% { transform: translateY(0); }
+        100% { transform: translateY(-10px); }
+    }
+    .health-right h1{
+        font-size: 25px;
+        text-transform: capitalize;
+    }
+    .health-right {
+        width: 100%;
+        display: inline;
+       
+    }
+    .health-icon {
+        display:inline;
+        margin: 0px 0px;
+        padding: 0px 0px;
+
+
+    }
+    .health-icon p{
+    font-size: 10px;
+       
+    }
+    .health-icon p{
+     width: 200px;
+    }
+  }
