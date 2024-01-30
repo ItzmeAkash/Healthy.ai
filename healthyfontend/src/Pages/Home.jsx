@@ -5,13 +5,13 @@ import Services from '../Components/Services/Services'
 import ContactUs from '../Components/ContactUs/ContactUs'
 
 
-const Home = () => {
+const Home = (props) => {
 
   
   return (
     <>  
   
-        <Banner />
+        <Banner text={props.text} showButton={true}/>
         <Healthy/>
         <Services/>
         <ContactUs/>

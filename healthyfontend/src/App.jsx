@@ -6,20 +6,22 @@ import DietRecomd from './Pages/DietRecomd'
 import FoodImage from './Pages/FoodImage'
 import Recipe from './Pages/Recipe'
 import AboutUs from './Pages/AboutUs'
-import Services from './Pages/Services'
+import Services from './Pages/MainServices'
 import ContactUs from './Pages/ContactUs'
 import Footer from './Components/Footer/Footer'
 function App() {
-
+ const bannerHomeText = '"Prioritize a healthy lifestyle"';
+ const bannerServiceText = '“Your diet is a bank account. Good food choices are good investments.”';
   return (
     <>
     <BrowserRouter>
     <NavBar/>
     <Routes>
-      <Route path='/' element={<Home/>}/>
+      <Route path='/' element={<Home text={bannerHomeText} />}/>
       <Route path='/aboutus' element={<AboutUs/>}/>
-      <Route path='/service' element={<Services/>}/>
+      <Route path='/service' element={<Services text={bannerServiceText}/>}/>
       <Route path='/contact' element={<ContactUs/>}/>
+      <Route path='/dietrecomdention' element={<DietRecomd/>}/>
       
      </Routes>
      <Footer/>   

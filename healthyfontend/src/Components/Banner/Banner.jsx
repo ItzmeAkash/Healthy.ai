@@ -4,15 +4,15 @@ import banner from '../../assets/banner.png'
 import { Link } from 'react-router-dom'
 import { FaArrowRight } from "react-icons/fa";
 
-const Banner = () => {
+const Banner = ({text,showButton}) => {
 
  
   return (
     <div className='banner-container'>
        <div className="banner-text">
-           <h1>"Prioritize a healthy lifestyle"</h1>
+           <h1>{text}</h1>
            <div className="button-container">
-         <Link style={{textDecoration:'none'}} to='/service'><button >Service <FaArrowRight /> </button></Link> 
+         {showButton && <Link style={{textDecoration:'none'}} to='/service'><button >Service <FaArrowRight /> </button></Link> }
         </div>
        </div>
        

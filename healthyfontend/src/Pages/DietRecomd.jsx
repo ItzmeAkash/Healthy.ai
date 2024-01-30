@@ -1,8 +1,16 @@
 import React from 'react'
+import './Css/DietRecomd.css'
 
 const DietRecomd = () => {
   return (
-    <div>DietRecomd</div>
+  <>
+      <div>
+
+        
+      </div>
+
+
+  </>
   )
 }
 
