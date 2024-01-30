@@ -13,6 +13,7 @@ function App() {
  const bannerHomeText = '"Prioritize a healthy lifestyle"';
  const bannerServiceText = '“Your diet is a bank account. Good food choices are good investments.”';
  const bannerHealthText = '“Eat breakfast like a king, lunch like a prince, and dinner like a pauper.”'
+ const bannerRecpeText = "“Love yourself enough to live a healthy lifestyle”"
   return (
     <>
     <BrowserRouter>
@@ -23,6 +24,7 @@ function App() {
       <Route path='/service' element={<Services text={bannerServiceText}/>}/>
       <Route path='/contact' element={<ContactUs/>}/>
       <Route path='/dietrecomdention' element={<DietRecomd text={bannerHealthText}/>}/>
+      <Route path='/recipe' element={<Recipe text={bannerRecpeText}/>}/>
       
      </Routes>
      <Footer/>   

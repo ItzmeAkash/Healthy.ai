@@ -27,7 +27,7 @@ const DietRecomd = (props) => {
               <input type="number" placeholder='Enter Your Weight' />
             </label>
             <label>Height
-              <input type="number" placeholder='Enter Your Height' />
+              <input type="number" placeholder='Enter Your Heigth' />
             </label>
             <label>Physical activity
               <select>

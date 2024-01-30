@@ -25,7 +25,7 @@ const Services = () => {
        <img src={foodrecipeimage} alt="" />
        <h2>Food Recipe Generator</h2>
        <p>"Explore tailored, nutritious recipes for your day with our recipe generator, making it effortless to savor delicious and healthy meals."</p>
-       <Link style={{textDecoration:'none'}} to='/recipegenerator'><button>Click Here</button></Link>
+       <Link style={{textDecoration:'none'}} to='/recipe'><button>Click Here</button></Link>
 
        
        </div>

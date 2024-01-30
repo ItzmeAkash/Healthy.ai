@@ -1,8 +1,12 @@
 import React from 'react'
+import Banner from '../Components/Banner/Banner'
 
-const Recipe = () => {
+const Recipe = (props) => {
   return (
-    <div>Recipe</div>
+    <div className='recipe-container'>
+
+      <Banner text={props.text}/>
+    </div>
   )
 }
 
