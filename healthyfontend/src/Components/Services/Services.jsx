@@ -12,11 +12,13 @@ const Services = () => {
         <div className='service-container'>
        <h1>Our Services</h1>
        <div className="card-container">
-       <div className="card">
+       <div  className="card">
        <img src={foodrecomdimage} alt="" />
        <h2>Food recommendation</h2>
        <p>"Get personalized, healthy meal recommendations for your day, making it easy to enjoy delicious and nutritious meals with our fuss-free service."</p>
-       <Link style={{textDecoration:'none'}} to='/dietrecomdention'><button>Click Here</button></Link>
+       <Link style={{textDecoration:'none'}} to='/dietrecomdention'><button onClick={() => {
+          window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+        }}  >Click Here</button></Link>
 
        </div>
        <div className="card">

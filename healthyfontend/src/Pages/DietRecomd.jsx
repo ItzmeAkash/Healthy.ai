@@ -7,7 +7,9 @@ const DietRecomd = (props) => {
   <>
       <div className='dietrecomd-contrainer'>
          <Banner text={props.text}/>
-       
+       <div className="dietrecomd">
+          <h1>Diet Food Recommendation</h1>
+       </div>
       </div>
 
 

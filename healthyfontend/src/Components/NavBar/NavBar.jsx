@@ -18,8 +18,8 @@ const NavBar = () => {
 
   return (
     <>
-      <div className="navbar">
-        <div onClick={() => handleMenuItemClick('Home')}  className="nav-log">
+      <div  className="navbar">
+        <div onClick={() => handleMenuItemClick('Home')}  className="nav-log" >
          <Link to='/'><img src={logo} alt="" /></Link> 
          {menu === 'Home' ? <hr /> : <></>}
         </div>
