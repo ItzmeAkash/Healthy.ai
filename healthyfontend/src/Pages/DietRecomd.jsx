@@ -1,12 +1,13 @@
 import React from 'react'
 import './Css/DietRecomd.css'
+import Banner from '../Components/Banner/Banner'
 
-const DietRecomd = () => {
+const DietRecomd = (props) => {
   return (
   <>
-      <div>
-
-        
+      <div className='dietrecomd-contrainer'>
+         <Banner text={props.text}/>
+       
       </div>
 
 

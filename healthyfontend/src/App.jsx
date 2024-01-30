@@ -12,6 +12,7 @@ import Footer from './Components/Footer/Footer'
 function App() {
  const bannerHomeText = '"Prioritize a healthy lifestyle"';
  const bannerServiceText = '“Your diet is a bank account. Good food choices are good investments.”';
+ const bannerHealthText = '“Eat breakfast like a king, lunch like a prince, and dinner like a pauper.”'
   return (
     <>
     <BrowserRouter>
@@ -21,7 +22,7 @@ function App() {
       <Route path='/aboutus' element={<AboutUs/>}/>
       <Route path='/service' element={<Services text={bannerServiceText}/>}/>
       <Route path='/contact' element={<ContactUs/>}/>
-      <Route path='/dietrecomdention' element={<DietRecomd/>}/>
+      <Route path='/dietrecomdention' element={<DietRecomd text={bannerHealthText}/>}/>
       
      </Routes>
      <Footer/>   
