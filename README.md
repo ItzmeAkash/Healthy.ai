@@ -78,7 +78,7 @@ mlflow ui
 ## Further Improvements 📈
 Ongoing Project Enhancements 📈
 
-- Consider building the frontend with React.js for improved user interface
+- Consider building the frontend with React.js for improved user interface [HealthAiFrontend](https://github.com/ItzmeAkash/HeathyAiFontend.git)
 - Explore the creation of RESTful APIs using Django Rest Framework
 
 
