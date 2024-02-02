@@ -1,5 +1,5 @@
 """
-ASGI config for healthybackend project.
+ASGI config for healthyaibackend project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'healthybackend.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'healthyaibackend.settings')
 
 application = get_asgi_application()
