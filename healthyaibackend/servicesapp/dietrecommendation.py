@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import numpy as np
 import joblib
 from calories.calories import CalorieCalculator
 
@@ -24,3 +25,30 @@ obj = CalorieCalculator(gender='male', weight=50, height=115, physical_activity=
 calories = obj.calculate()
 
 print("Calories:", calories)
+
+
+# Function for dividing Calories
+def divide_calories(calories):
+    breakfast = int(0.30 * calories)
+    lunch = int(0.25 * calories)
+    snacks = int(0.15 * calories)
+    dinner = int(0.27 * calories)
+    return breakfast, lunch, snacks, dinner
+
+
+# Function for Recommending each meal
+def diet_recomend(calories):
+    breakfast, lunch, snacks, dinner = divide_calories(calories=calories)
+
+    # Prediction Breakfast
+    breakfast_cluster = model.predict(np.array([breakfast]).reshape(-1,1)).flatten() 
+    breakfast_food = df.loc[(df['Breakfast'] == 1) & (df['cluster'] == breakfast_cluster[0]), ['food_items', 'Calories']].sort_values(by='Calories').head()
+    lunch_cluster = model.predict(np.array([lunch]).reshape(-1,1)).flatten()
+    luch_food = df.loc[(df['Lunch'] == 1) & (df['cluster'] == lunch_cluster[0]), ['food_items', 'Calories']].sort_values(by='Calories').head()
+
+    return luch_food
+
+
+
+print(diet_recomend(calories=calories))
+
