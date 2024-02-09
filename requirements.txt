@@ -17,4 +17,5 @@ scipy
 django
 Flask-Cors
 Flask
+djangorestframework
 -e .
