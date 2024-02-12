@@ -16,4 +16,4 @@ class UserRegisterView(APIView):
             return Response({
                 'message':'Sucess'
             })
-        return Response(serializer.errors,status.HTTP_400_BAD_REQUEST)   
+        return Response(serializer.error_messages,status.HTTP_400_BAD_REQUEST)   

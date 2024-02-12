@@ -19,7 +19,7 @@ class User(AbstractUser,PermissionsMixin):
     
     USERNAME_FIELD = 'email'
     
-    REQUIRED_FIELDS = ["first_name","last_name"]
+    REQUIRED_FIELDS = ["first_name"+"last_name"]
     
        
     def __str__(self):
