@@ -4,27 +4,27 @@ from authapp.models import User
 # Service Models.
 class DietRecommendation(models.Model):
     GENDER_CHOICES = [
-        ('M', 'Male'),
-        ('F', 'Female'),
+        ('Male', 'Male'),
+        ('Female', 'Female'),
     ]
     PHYSICAL_CHOICES = [
-        ('1','Sedentray'),
-        ('2','LightlyActive'),
-        ('3','ModeratelyActive'),
-        ('4','ExtremelyActive'),
+        ('Sedentray','Sedentray'),
+        ('LightlyActive','LightlyActive'),
+        ('ModeratelyActive','ModeratelyActive'),
+        ('ExtremelyActive','ExtremelyActive'),
     ]  
     GOAL_CHOICES = [
-        ('1','Weight Loss'),
-        ('2','Weight Gain'),
-        ('3','Maintain Weight'),
+        ('WeightLoss','WeightLoss'),
+        ('WeightGain','WeightGain'),
+        ('MaintainWeight','MaintainWeight'),
     ]
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     age = models.IntegerField()
-    gender = models.CharField(max_length=1, choices=GENDER_CHOICES)
+    gender = models.CharField(max_length=10, choices=GENDER_CHOICES)
     weight = models.FloatField()
     height = models.FloatField()
-    physical_activity = models.CharField(max_length = 1 ,choices=PHYSICAL_CHOICES)
-    goal = models.CharField(max_length=100)
+    physical_activity = models.CharField(max_length = 50 ,choices=PHYSICAL_CHOICES)
+    goal = models.CharField(max_length=100,choices=GOAL_CHOICES)
     
     def __str__(self):
         return str(self.user)
