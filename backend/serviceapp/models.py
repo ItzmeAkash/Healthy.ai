@@ -9,9 +9,9 @@ class DietRecommendation(models.Model):
     ]
     PHYSICAL_CHOICES = [
         ('1','Sedentray'),
-        ('2','Lightly active'),
-        ('3','Moderately active'),
-        ('4','Extremely active'),
+        ('2','LightlyActive'),
+        ('3','ModeratelyActive'),
+        ('4','ExtremelyActive'),
     ]  
     GOAL_CHOICES = [
         ('1','Weight Loss'),
