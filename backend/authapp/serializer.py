@@ -15,10 +15,7 @@ class UserSerializer(serializers.ModelSerializer):
             }
         }
         
-        
-        # Validation
-        
-        
+       # Creating the User
         def create(self, validate_data):
             password = validate_data.pop('password', None)
             if password:
@@ -28,16 +25,3 @@ class UserSerializer(serializers.ModelSerializer):
                 user.save()
                 return user
             raise serializers.ValidationError("Password do not match or missing")
-        
-        def to_internal_value(self, data):
-            data = super().to_internal_value(data)
-            errors = {}
-
-            for field, value in data.items():
-                if value == '':
-                    errors[field] = "This field is required."
-
-            if errors:
-                raise serializers.ValidationError(errors)
-
-            return data

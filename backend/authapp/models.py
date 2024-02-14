@@ -2,7 +2,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser,PermissionsMixin
 from .manager import UserManager
 from django.utils.translation import gettext_lazy as _
-# Create your models here.
+
+# User Registeration  Model.
 class User(AbstractUser,PermissionsMixin):
     first_name = models.CharField(max_length=100, verbose_name = _("firstname"))
     last_name = models.CharField(max_length=100, verbose_name = _("lastname"))
