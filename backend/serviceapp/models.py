@@ -18,7 +18,7 @@ class DietRecommendation(models.Model):
         ('WeightGain','WeightGain'),
         ('MaintainWeight','MaintainWeight'),
     ]
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE,related_name='dietRecommendations')
     age = models.IntegerField()
     gender = models.CharField(max_length=10, choices=GENDER_CHOICES)
     weight = models.FloatField()
