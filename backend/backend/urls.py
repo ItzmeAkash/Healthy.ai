@@ -22,3 +22,5 @@ urlpatterns = [
     path('api/auth/',include('authapp.urls')),
     path('api/service/',include('serviceapp.urls')),
 ]
+
+

@@ -28,3 +28,11 @@ class DietRecommendation(models.Model):
     
     def __str__(self):
         return str(self.user)
+
+# Model for Food Image Classification
+
+class FoodImageModel(models.Model):
+    image = models.ImageField(upload_to='images/', blank=True, null=True)
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+    
+    

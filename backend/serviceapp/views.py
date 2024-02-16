@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
-from .serializer import DietRecomSerializer
+from rest_framework import status, generics
+from .serializer import DietRecomSerializer,FoodImageSerializer
 from .foodrecomd import FoodRecommendation
-
+from .models import FoodImageModel
 import joblib
 import numpy as np
 import pandas as pd
@@ -54,3 +54,9 @@ class DietRecommendationView(APIView):
                 if field != 'unknown':  
                     required_messages[field] = message
             return Response({'error_messages': required_messages}, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+class FoodClasssificationView(generics.CreateAPIView):
+    queryset = FoodImageModel.objects.all()
+    serializer_class = FoodImageSerializer

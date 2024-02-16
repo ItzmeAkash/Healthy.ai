@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import DietRecommendation
+from .models import DietRecommendation,FoodImageModel
 
 # Diet Recommendation Serializer
 class DietRecomSerializer(serializers.ModelSerializer):
@@ -17,5 +17,10 @@ class DietRecomSerializer(serializers.ModelSerializer):
         if age <18:
             raise serializers.ValidationError("Age must be greater or equal to 18")
         return age
-           
+
+
+class FoodImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FoodImageModel
+        fields = ('__all__')
        
