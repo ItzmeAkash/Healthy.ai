@@ -26,3 +26,14 @@ class User(AbstractUser,PermissionsMixin):
     def __str__(self):
         return  self.first_name + " " +  self.last_name
     
+    @property
+    def get_full_name(self):
+        return f"{self.first_name}{self.last_name}"
+    
+    # def token(self):
+    #    refresh = RefreshToken.for_user(self)
+    #    return {
+    #        'refresh': str(refresh),
+    #        'access': str(refresh.access_token)
+    #    }
+

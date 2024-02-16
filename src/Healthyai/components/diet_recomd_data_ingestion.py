@@ -6,7 +6,6 @@ from Healthyai.utils.common import get_size
 from Healthyai.entity.config_entity import DietRecommendDataIngestionConfig
 
 
-
 # Diet Recommendation DataIngestion
 class DataIngestion:
     def __init__(self, config: DietRecommendDataIngestionConfig):
