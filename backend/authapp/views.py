@@ -1,12 +1,17 @@
+import datetime
+import jwt
 import re
-from rest_framework.views import APIView
-from rest_framework.response import Response
+
 from rest_framework import status
-from .serializer import UserSerializer
-from rest_framework.generics import GenericAPIView
 from rest_framework.exceptions import AuthenticationFailed
+from rest_framework.generics import GenericAPIView
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 from .models import User
-import jwt,datetime
+from .serializer import UserSerializer
+
+
 class UserRegisterView(APIView):
     def post(self, request):
         try:
@@ -74,4 +79,6 @@ class LogoutView(APIView):
         }
         
         return response
+    
+
 
