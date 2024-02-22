@@ -5,10 +5,14 @@ from rest_framework import status, generics
 from .serializer import DietRecomSerializer,FoodImageSerializer
 from .foodrecomd import FoodRecommendation
 from .models import FoodImageModel
+from keras.models import load_model
+from keras.preprocessing.image import load_img,img_to_array
 import joblib
 import numpy as np
 import pandas as pd
 import re
+from django.core.files.uploadedfile import InMemoryUploadedFile
+from io import BytesIO
 
 class DietRecommendationView(APIView):
     def post(self, request):
@@ -57,6 +61,35 @@ class DietRecommendationView(APIView):
 
 
 
-class FoodClasssificationView(generics.CreateAPIView):
+class FoodClassificationView(generics.CreateAPIView):
     queryset = FoodImageModel.objects.all()
     serializer_class = FoodImageSerializer
+
+    def create(self, request):
+        try:
+            # Load the model
+            model_path = 'serviceapp/PredictedModel/foodimagemodel.h5'
+            model = load_model(model_path)
+            
+            # Get the image file from the request
+            image_file = request.FILES.get('image')            
+            if image_file:
+                # Load and preprocess the image
+                # Convert InMemoryUploadedFile to BytesIO
+                image_file_data = BytesIO(image_file.read())
+                image = load_img(image_file_data, target_size=(224, 224))
+                image = img_to_array(image)
+                image = np.expand_dims(image, axis=0)
+
+                # Predict the class of the image
+                result = np.argmax(model.predict(image), axis=1)
+                print(result)
+                
+                # Save the result to the database or perform any other actions
+                return Response({"status": "success", "predicted_class": int(result[0])}, status=status.HTTP_200_OK)
+            else:
+                return Response({'error': 'No image provided'}, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            print(f"Error: {e}")
+            return Response({'error': 'An error occurred while processing the image'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            
