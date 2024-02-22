@@ -14,6 +14,8 @@ import re
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from io import BytesIO
 
+
+# Diet Recommendation View
 class DietRecommendationView(APIView):
     def post(self, request):
         try:
@@ -60,7 +62,7 @@ class DietRecommendationView(APIView):
             return Response({'error_messages': required_messages}, status=status.HTTP_400_BAD_REQUEST)
 
 
-
+# Food Classification View
 class FoodClassificationView(generics.CreateAPIView):
     queryset = FoodImageModel.objects.all()
     serializer_class = FoodImageSerializer
@@ -85,8 +87,14 @@ class FoodClassificationView(generics.CreateAPIView):
                 result = np.argmax(model.predict(image), axis=1)
                 print(result)
                 
+                #Load the Food Image Labels
+                labels_path = 'serviceapp/data/foodimagelabels.txt'
+                with open(labels_path, 'r') as file:
+                    food_items = file.read().splitlines()
+                    #Find the Food name according to the labels
+                    predicted_food_items = food_items[result[0]-1] if 0 <= result[0] < len(food_items) else "Unknown" 
                 # Save the result to the database or perform any other actions
-                return Response({"status": "success", "predicted_class": int(result[0])}, status=status.HTTP_200_OK)
+                return Response({"status": "success", "predicted_class": int(result[0]),"foodname":predicted_food_items}, status=status.HTTP_200_OK)
             else:
                 return Response({'error': 'No image provided'}, status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
